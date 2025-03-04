@@ -3,7 +3,7 @@
 ## Given Functions:
 The following functions are ordered by their **growth rate**, from the slowest-growing to the fastest-growing:
 
-1. \( 37 \)  *(Constant time complexity)*
+1. \( 37 \) *(Constant time complexity)*
 2. \( \frac{2}{N} \) *(Decreasing function, asymptotically approaching zero)*
 3. \( \sqrt{N} \) *(Sublinear growth)*
 4. \( N \) *(Linear growth)*
@@ -45,3 +45,20 @@ The following functions are ordered by their **growth rate**, from the slowest-g
 - \( 2^N \) and \( 2^{N/2} \) are both **exponential**, but \( 2^N \) grows significantly faster.
 
 This ordering correctly follows **asymptotic complexity analysis** principles.
+
+---
+
+## **Growth Rate Visualization**
+```mermaid
+graph LR;
+    A[Constant: O(1)] --> B[Decreasing: O(1/N)]
+    B --> C[Sublinear: O(sqrt(N))]
+    C --> D[Linear: O(N)]
+    D --> E[Slightly Superlinear: O(N log log N)]
+    E --> F[Superlinear: O(N log N)]
+    F --> G[Superlinear: O(N log^2 N)]
+    G --> H[Quadratic: O(N^2)]
+    H --> I[Slightly Super-Quadratic: O(N^2 log N)]
+    I --> J[Cubic: O(N^3)]
+    J --> K[Exponential: O(2^(N/2))]
+    K --> L[Exponential: O(2^N)]
