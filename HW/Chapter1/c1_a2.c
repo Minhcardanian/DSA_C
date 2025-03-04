@@ -1,40 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Function to swap two integers using pointers (from Assignment 1)
+// Swap two integers using pointers
 void Swap(int* x, int* y) {
     int temp = *x;
     *x = *y;
     *y = temp;
 }
 
-// Function to calculate the sum of a 1D array using pointers
+// Calculate sum of a 1D array
 int sumArray(int* arr, int size) {
     int sum = 0;
     for (int i = 0; i < size; i++) {
-        sum += *(arr + i);  // Pointer arithmetic to access elements
+        sum += *(arr + i);
     }
     return sum;
 }
 
-// Function to sort an array in ascending order using Selection Sort and Swap function
+// Sort array in ascending order
 void sortArray(int* arr, int size) {
     for (int i = 0; i < size - 1; i++) {
         for (int j = i + 1; j < size; j++) {
-            if (*(arr + i) > *(arr + j)) { // Compare values
-                Swap((arr + i), (arr + j)); // Swap using pointer function
+            if (*(arr + i) > *(arr + j)) {
+                Swap((arr + i), (arr + j));
             }
         }
     }
 }
 
-// Function to find the maximum sum of a subarray using Kadane's algorithm
+// Find max sum of a subarray (Kadane's Algorithm)
 int maxSubarraySum(int* arr, int size) {
-    int maxSum = *arr; // Initialize max sum with first element
-    int currentSum = *arr; // Start from first element
-
+    int maxSum = *arr, currentSum = *arr;
     for (int i = 1; i < size; i++) {
-        // Either extend the current subarray or start a new one
         currentSum = (*(arr + i) > (currentSum + *(arr + i))) ? *(arr + i) : (currentSum + *(arr + i));
         maxSum = (maxSum > currentSum) ? maxSum : currentSum;
     }
@@ -44,10 +41,38 @@ int maxSubarraySum(int* arr, int size) {
 int main() {
     int n;
 
-    // (a) Accepting user input for array size and values
+    // Get array size
     printf("Enter the size of the array: ");
     scanf("%d", &n);
 
-    // Dynamically allocate memory for the array
+    // Allocate memory
     int *arr = (int*) malloc(n * sizeof(int));
     if (arr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    // Get array elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", arr + i);
+    }
+
+    // Print sum
+    printf("\nSum of the array: %d\n", sumArray(arr, n));
+
+    // Sort and print array
+    sortArray(arr, n);
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(arr + i));
+    }
+    printf("\n");
+
+    // Print max subarray sum
+    printf("Max subarray sum: %d\n", maxSubarraySum(arr, n));
+
+    // Free memory
+    free(arr);
+    return 0;
+}
