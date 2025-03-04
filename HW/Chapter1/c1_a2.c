@@ -74,5 +74,9 @@ int main() {
 
     // Free memory
     free(arr);
+    
+    // Delete the compiled output file
+    remove("c1a2");
+    
     return 0;
 }
