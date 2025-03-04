@@ -13,5 +13,8 @@ int main(){
     printf("Before swapping: a=%d, b=%d\n", a,b);
     Swap(&a, &b);
     printf("After swapping: a = %d, b = %d\n", a, b);
-    return 0; 
+    stop
+
+    return 0;
+ 
 }

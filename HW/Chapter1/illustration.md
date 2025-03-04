@@ -1,6 +1,6 @@
 # DSA in C - Solved Assignments
 
-This repository contains solutions for Data Structures and Algorithms (DSA) problems in C, complete with implementations and workflow diagrams.
+This repository contains solutions for Data Structures and Algorithms (DSA) problems in C, complete with implementations, workflow diagrams, and pseudocode.
 
 ---
 
@@ -8,6 +8,15 @@ This repository contains solutions for Data Structures and Algorithms (DSA) prob
 
 ### Problem Statement
 Write a function to swap two integers using pointers: `void Swap(int* x, int* y)`. Implement a program to test this function.
+
+### Pseudocode
+```
+FUNCTION Swap(x, y)
+    temp ← *x
+    *x ← *y
+    *y ← temp
+END FUNCTION
+```
 
 ### Solution
 ```c
@@ -38,6 +47,21 @@ graph TD;
 2. Compute sum using pointers.
 3. Sort in ascending order.
 4. Find the maximum sum of a subarray.
+
+### Pseudocode
+```
+BEGIN
+    INPUT size
+    DECLARE array[size]
+    FOR i ← 0 TO size-1 DO
+        INPUT array[i]
+    END FOR
+    
+    CALL sumArray(array, size)
+    CALL sortArray(array, size)
+    CALL findMaxSubarray(array, size)
+END
+```
 
 ### Solution
 ```c
@@ -71,6 +95,22 @@ graph TD;
 2. Compute sum using pointers.
 3. Print the transpose of the matrix.
 
+### Pseudocode
+```
+BEGIN
+    INPUT rows, cols
+    DECLARE matrix[rows][cols]
+    FOR i ← 0 TO rows-1 DO
+        FOR j ← 0 TO cols-1 DO
+            INPUT matrix[i][j]
+        END FOR
+    END FOR
+    
+    CALL computeSum(matrix, rows, cols)
+    CALL transposeMatrix(matrix, rows, cols)
+END
+```
+
 ### Solution
 ```c
 void transposeMatrix(int** arr, int rows, int cols) {
@@ -103,6 +143,20 @@ graph TD;
 2. Compute total salary using pointers.
 3. Sort workers by salary in descending order.
 
+### Pseudocode
+```
+BEGIN
+    INPUT number_of_workers
+    DECLARE workers[number_of_workers]
+    FOR i ← 0 TO number_of_workers-1 DO
+        INPUT workers[i].id, workers[i].fullName, workers[i].age, workers[i].salary
+    END FOR
+    
+    CALL computeTotalSalary(workers, number_of_workers)
+    CALL sortWorkersBySalary(workers, number_of_workers)
+END
+```
+
 ### Solution
 ```c
 typedef struct {
@@ -122,4 +176,3 @@ graph TD;
     D --> E[Sort workers by salary in descending order]
     E --> F[Print sorted results]
     F --> G[End]
-```
